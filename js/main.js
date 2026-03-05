@@ -406,70 +406,70 @@ function initSymptomChecker() {
   const steps = checker.querySelectorAll('.checker-step');
   const dots = checker.querySelectorAll('.checker-dot');
   const resultEl = checker.querySelector('.checker-result');
-  let currentStep = 0;
+  let answeredCount = 0;
   let yesCount = 0;
 
-  function showStep(index) {
-    steps.forEach((step, i) => {
-      step.classList.toggle('active', i === index);
-    });
+  function updateDots() {
     dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i <= index);
+      dot.classList.toggle('active', i < answeredCount);
     });
   }
 
   function showResult() {
-    steps.forEach(step => step.classList.remove('active'));
-
     if (yesCount > 0) {
-      resultEl.className = 'checker-result emergency active';
+      resultEl.className = 'checker-result emergency';
       resultEl.innerHTML = `
-        <div style="font-size: 3rem; margin-bottom: 1rem;">&#x1F6A8;</div>
+        <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">&#x1F6A8;</div>
         <h3 style="color: var(--red);">Call Emergency Now!</h3>
         <p>The symptoms you identified may indicate a stroke. Call <strong>1122</strong> (Pakistan) or <strong>911</strong> (US) immediately.</p>
         <p style="font-weight: 600; color: var(--dark);">Every minute matters. Do not wait.</p>
-        <button class="btn btn-primary" onclick="this.closest('.symptom-checker').querySelector('.checker-reset').click()" style="margin-top: 1rem;">Start Over</button>
+        <button class="btn btn-primary checker-reset-btn" style="margin-top: 0.75rem;">Start Over</button>
       `;
     } else {
-      resultEl.className = 'checker-result safe active';
+      resultEl.className = 'checker-result safe';
       resultEl.innerHTML = `
-        <div style="font-size: 3rem; margin-bottom: 1rem;">&#x2705;</div>
+        <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">&#x2705;</div>
         <h3 style="color: var(--green);">No Warning Signs Detected</h3>
         <p>Based on your answers, no immediate stroke warning signs were identified. Stay aware and learn the signs.</p>
-        <button class="btn btn-secondary" onclick="this.closest('.symptom-checker').querySelector('.checker-reset').click()" style="margin-top: 1rem;">Start Over</button>
+        <button class="btn btn-secondary checker-reset-btn" style="margin-top: 0.75rem;">Start Over</button>
       `;
     }
     resultEl.style.display = 'block';
   }
 
   checker.addEventListener('click', (e) => {
+    // Handle reset
+    if (e.target.closest('.checker-reset-btn')) {
+      answeredCount = 0;
+      yesCount = 0;
+      resultEl.style.display = 'none';
+      resultEl.className = 'checker-result';
+      steps.forEach(step => {
+        step.classList.remove('answered');
+        step.querySelectorAll('.checker-btn').forEach(btn => btn.classList.remove('selected'));
+      });
+      updateDots();
+      return;
+    }
+
     const btn = e.target.closest('.checker-btn');
     if (!btn) return;
 
-    if (btn.classList.contains('yes')) yesCount++;
+    const step = btn.closest('.checker-step');
+    if (step.classList.contains('answered')) return;
 
-    currentStep++;
-    if (currentStep >= steps.length) {
+    // Mark selected button
+    btn.classList.add('selected');
+    step.classList.add('answered');
+
+    if (btn.classList.contains('yes')) yesCount++;
+    answeredCount++;
+    updateDots();
+
+    if (answeredCount >= steps.length) {
       showResult();
-    } else {
-      showStep(currentStep);
     }
   });
-
-  // Reset button
-  const resetBtn = document.createElement('button');
-  resetBtn.className = 'checker-reset';
-  resetBtn.style.display = 'none';
-  resetBtn.addEventListener('click', () => {
-    currentStep = 0;
-    yesCount = 0;
-    resultEl.style.display = 'none';
-    resultEl.className = 'checker-result';
-    showStep(0);
-  });
-  checker.appendChild(resetBtn);
-
-  showStep(0);
 }
 
 /* ============================================

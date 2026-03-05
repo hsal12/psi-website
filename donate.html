@@ -449,6 +449,8 @@
             <a href="https://www.instagram.com/pak.stroke.initiative/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
+          </div>
+          <div class="nav-mobile-social-links">
             <a href="https://twitter.com/pakistanstroke" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
             </a>
@@ -596,39 +598,47 @@
         <div class="text-center fade-in" style="margin-bottom: 2rem;">
           <span class="section-label">Double Your Impact</span>
           <h2 class="section-title">Employer Matching Gifts</h2>
-          <p class="section-subtitle">Many employers will match your charitable donation, effectively doubling your impact at no extra cost to you. Check if your company participates.</p>
+          <p class="section-subtitle">Many employers will match your charitable donation, effectively doubling your impact at no extra cost to you. Use the tool below to search if your company participates.</p>
         </div>
 
         <div class="fade-in" style="max-width: 700px; margin: 0 auto;">
-          <div style="background: linear-gradient(135deg, rgba(26,107,55,0.06), rgba(30,98,57,0.03)); border: 1px solid rgba(26,107,55,0.15); border-radius: var(--radius-lg); padding: 2.5rem; text-align: center;">
-            <div style="width: 64px; height: 64px; border-radius: 50%; background: rgba(26,107,55,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 1.25rem;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#1a6b37" stroke-width="1.5" width="32" height="32"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6"/><path d="M23 11h-6"/></svg>
+          <!-- Double the Donation Search Widget -->
+          <div style="background: linear-gradient(135deg, rgba(26,107,55,0.06), rgba(30,98,57,0.03)); border: 1px solid rgba(26,107,55,0.15); border-radius: var(--radius-lg); padding: 2rem; text-align: center;">
+            <h3 style="font-size: 1.15rem; color: var(--dark); margin-bottom: 0.5rem;">Search Your Employer</h3>
+            <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.25rem;">Over 24,000 companies match employee donations. Search below to find your employer's matching gift program, forms, and instructions.</p>
+
+            <div style="margin-bottom: 1.5rem;">
+              <script>var DDCONF = { API_KEY: "GU2uJk5Tu10ADpk8" };</script>
+              <script src="https://doublethedonation.com/api/js/ddplugin.js"></script>
+              <div id="dd-container">
+                <a href="https://doublethedonation.com/matching-grant-resources/matching-gift-basics/">Matching Gift</a> and
+                <a href="https://doublethedonation.com/matching-grant-resources/volunteer-grant-basics/">Volunteer Grant</a> information provided by<br>
+                <a href="https://doublethedonation.com"><img alt="Powered by Double the Donation" src="https://doublethedonation.com/api/img/powered-by.png"></a>
+              </div>
             </div>
-            <h3 style="font-size: 1.15rem; color: var(--dark); margin-bottom: 0.75rem;">Does Your Employer Match Donations?</h3>
-            <p style="color: var(--gray); font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">Over 24,000 companies match employee donations to nonprofits. Search for your employer to see if you can double your gift to PSI.</p>
-            <a href="https://doublethedonation.com/matching-gift-search/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg" style="margin-bottom: 1.5rem;">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-              Search Your Employer
-            </a>
-            <div style="border-top: 1px solid rgba(26,107,55,0.12); padding-top: 1.5rem; margin-top: 0.5rem;">
+
+            <div style="border-top: 1px solid rgba(26,107,55,0.12); padding-top: 1.5rem;">
               <p style="font-weight: 600; font-size: 0.9rem; color: var(--dark); margin-bottom: 0.75rem;">How It Works</p>
-              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; text-align: center;">
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; text-align: center;">
                 <div>
-                  <div style="font-size: 1.5rem; font-weight: 800; color: var(--purple); margin-bottom: 0.25rem;">1</div>
-                  <p style="font-size: 0.82rem; color: var(--gray); line-height: 1.4;">Donate to PSI through Zeffy or any method</p>
+                  <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(26,107,55,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-size: 1.25rem; font-weight: 800; color: var(--purple);">1</div>
+                  <p style="font-weight: 600; font-size: 0.85rem; color: var(--dark); margin-bottom: 0.25rem;">Make a Donation</p>
+                  <p style="font-size: 0.8rem; color: var(--gray); line-height: 1.4;">Donate to PSI through Zeffy, Zelle, or any method on this page</p>
                 </div>
                 <div>
-                  <div style="font-size: 1.5rem; font-weight: 800; color: var(--purple); margin-bottom: 0.25rem;">2</div>
-                  <p style="font-size: 0.82rem; color: var(--gray); line-height: 1.4;">Search your employer above or ask your HR department</p>
-                </div>
-                <div>
-                  <div style="font-size: 1.5rem; font-weight: 800; color: var(--purple); margin-bottom: 0.25rem;">3</div>
-                  <p style="font-size: 0.82rem; color: var(--gray); line-height: 1.4;">Submit a matching gift request &mdash; your employer matches your donation</p>
+                  <div style="width: 40px; height: 40px; border-radius: 50%; background: rgba(26,107,55,0.1); display: flex; align-items: center; justify-content: center; margin: 0 auto 0.5rem; font-size: 1.25rem; font-weight: 800; color: var(--purple);">2</div>
+                  <p style="font-weight: 600; font-size: 0.85rem; color: var(--dark); margin-bottom: 0.25rem;">Submit a Match Request</p>
+                  <p style="font-size: 0.8rem; color: var(--gray); line-height: 1.4;">Search your employer above and follow the instructions to have your gift matched</p>
                 </div>
               </div>
             </div>
           </div>
-          <p style="text-align: center; font-size: 0.82rem; color: var(--gray); margin-top: 1rem;">PSI is a registered 501(c)(3) nonprofit (EIN: 88-4257340), eligible for most employer matching gift programs.</p>
+
+          <div style="text-align: center; margin-top: 1.25rem; padding: 1rem; background: var(--light-gray); border-radius: var(--radius-md);">
+            <p style="font-size: 0.85rem; color: var(--dark); line-height: 1.5; margin-bottom: 0.25rem;"><strong>PSI Matching Gift Details</strong></p>
+            <p style="font-size: 0.82rem; color: var(--gray); line-height: 1.5;">Organization: Pakistan Stroke Initiative &bull; EIN: 88-4257340 &bull; 501(c)(3) Nonprofit</p>
+            <p style="font-size: 0.78rem; color: var(--gray); margin-top: 0.5rem;">If your employer's program requires it, use the information above when submitting your matching gift request. Questions? Email <a href="mailto:info@pakistanstroke.com" style="color: var(--purple);">info@pakistanstroke.com</a></p>
+          </div>
         </div>
       </div>
     </section>
