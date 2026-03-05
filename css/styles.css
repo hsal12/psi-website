@@ -470,6 +470,10 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
   }
 
+  .nav-logo img {
+    height: 50px;
+  }
+
   .nav-mobile-donate {
     display: inline-flex;
     align-items: center;
@@ -2632,6 +2636,8 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   background: var(--white);
+  max-width: 650px;
+  margin: 0 auto;
 }
 
 .hospital-table {

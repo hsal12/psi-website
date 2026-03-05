@@ -104,15 +104,20 @@
 
     .alt-donation-section {
       padding: 4rem 0;
-      background: linear-gradient(135deg, #f0f7f2 0%, #e8f5ec 100%);
-      border-top: 1px solid rgba(26,107,55,0.08);
-      border-bottom: 1px solid rgba(26,107,55,0.08);
+      background: linear-gradient(135deg, #e3f0e6 0%, #d6eadc 100%);
+      border-top: 2px solid rgba(26,107,55,0.12);
+      border-bottom: 2px solid rgba(26,107,55,0.12);
     }
     .alt-donation-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
       gap: 1.5rem;
       margin-top: 2rem;
+      justify-content: center;
+    }
+    .alt-donation-card {
+      flex: 0 1 calc(33.33% - 1rem);
+      min-width: 250px;
     }
     .alt-donation-card {
       background: var(--white);
@@ -310,7 +315,9 @@
 
     .faq-section {
       padding: var(--section-pad) 0;
-      background: var(--off-white);
+      background: #f0f2f0;
+      border-top: 2px solid rgba(26,107,55,0.08);
+      border-bottom: 2px solid rgba(26,107,55,0.08);
     }
 
     .faq-grid {
