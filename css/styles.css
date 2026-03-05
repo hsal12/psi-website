@@ -1652,7 +1652,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .footer-brand .nav-logo img {
-  height: 220px !important;
+  height: 320px !important;
   width: auto;
 }
 
@@ -1815,7 +1815,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .footer-brand .nav-logo img {
-    height: 160px !important;
+    height: 240px !important;
   }
 
   .footer-brand p {
