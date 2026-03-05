@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initSymptomChecker();
   initLightbox();
+  initDonateNav();
 });
 
 /* ============================================
@@ -403,19 +404,46 @@ function initSymptomChecker() {
   const checker = document.querySelector('.symptom-checker');
   if (!checker) return;
 
+  const track = checker.querySelector('.checker-track');
   const steps = checker.querySelectorAll('.checker-step');
   const dots = checker.querySelectorAll('.checker-dot');
   const resultEl = checker.querySelector('.checker-result');
-  let answeredCount = 0;
-  let yesCount = 0;
+  const prevBtn = checker.querySelector('.checker-prev');
+  const nextBtn = checker.querySelector('.checker-next');
+  const navEl = checker.querySelector('.checker-nav');
 
-  function updateDots() {
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i < answeredCount);
+  let currentStep = 0;
+  let yesCount = 0;
+  const answered = new Array(steps.length).fill(false);
+
+  function goToStep(index, direction) {
+    if (index < 0 || index >= steps.length) return;
+    const dir = direction || (index > currentStep ? 'left' : 'right');
+    steps.forEach(s => {
+      s.classList.remove('active', 'slide-left', 'slide-right');
     });
+    steps[index].classList.add('active', dir === 'left' ? 'slide-left' : 'slide-right');
+    currentStep = index;
+    updateUI();
+  }
+
+  function updateUI() {
+    // Update dots
+    dots.forEach((dot, i) => {
+      dot.classList.remove('active', 'current');
+      if (answered[i]) dot.classList.add('active');
+      if (i === currentStep) dot.classList.add('current');
+    });
+    // Update arrows
+    prevBtn.disabled = currentStep === 0;
+    nextBtn.disabled = currentStep === steps.length - 1;
   }
 
   function showResult() {
+    // Hide track and nav
+    track.style.display = 'none';
+    navEl.style.display = 'none';
+
     if (yesCount > 0) {
       resultEl.className = 'checker-result emergency';
       resultEl.innerHTML = `
@@ -437,18 +465,35 @@ function initSymptomChecker() {
     resultEl.style.display = 'block';
   }
 
+  function resetChecker() {
+    currentStep = 0;
+    yesCount = 0;
+    answered.fill(false);
+    resultEl.style.display = 'none';
+    resultEl.className = 'checker-result';
+    track.style.display = '';
+    navEl.style.display = '';
+    steps.forEach(s => {
+      s.classList.remove('active', 'answered', 'slide-left', 'slide-right');
+      s.querySelectorAll('.checker-btn').forEach(b => b.classList.remove('selected'));
+    });
+    steps[0].classList.add('active');
+    updateUI();
+  }
+
+  // Arrow navigation
+  prevBtn.addEventListener('click', () => goToStep(currentStep - 1, 'right'));
+  nextBtn.addEventListener('click', () => goToStep(currentStep + 1, 'left'));
+
+  // Dot navigation
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => goToStep(i));
+  });
+
+  // Answer buttons
   checker.addEventListener('click', (e) => {
-    // Handle reset
     if (e.target.closest('.checker-reset-btn')) {
-      answeredCount = 0;
-      yesCount = 0;
-      resultEl.style.display = 'none';
-      resultEl.className = 'checker-result';
-      steps.forEach(step => {
-        step.classList.remove('answered');
-        step.querySelectorAll('.checker-btn').forEach(btn => btn.classList.remove('selected'));
-      });
-      updateDots();
+      resetChecker();
       return;
     }
 
@@ -458,18 +503,57 @@ function initSymptomChecker() {
     const step = btn.closest('.checker-step');
     if (step.classList.contains('answered')) return;
 
-    // Mark selected button
+    // Mark answer
     btn.classList.add('selected');
     step.classList.add('answered');
-
+    answered[currentStep] = true;
     if (btn.classList.contains('yes')) yesCount++;
-    answeredCount++;
-    updateDots();
 
-    if (answeredCount >= steps.length) {
-      showResult();
+    // Check if all answered
+    const allAnswered = answered.every(Boolean);
+    if (allAnswered) {
+      setTimeout(() => showResult(), 400);
+      return;
     }
+
+    // Auto-advance to next unanswered step
+    setTimeout(() => {
+      let next = -1;
+      // Look forward first
+      for (let i = currentStep + 1; i < steps.length; i++) {
+        if (!answered[i]) { next = i; break; }
+      }
+      // Then look from beginning
+      if (next === -1) {
+        for (let i = 0; i < currentStep; i++) {
+          if (!answered[i]) { next = i; break; }
+        }
+      }
+      if (next !== -1) goToStep(next, 'left');
+    }, 350);
   });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    if (!checker.closest('.section')) return;
+    const rect = checker.getBoundingClientRect();
+    if (rect.top > window.innerHeight || rect.bottom < 0) return;
+    if (e.key === 'ArrowRight') goToStep(currentStep + 1, 'left');
+    if (e.key === 'ArrowLeft') goToStep(currentStep - 1, 'right');
+  });
+
+  // Touch swipe support
+  let touchStartX = 0;
+  track.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend', (e) => {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) goToStep(currentStep + 1, 'left');
+      else goToStep(currentStep - 1, 'right');
+    }
+  }, { passive: true });
+
+  updateUI();
 }
 
 /* ============================================
@@ -560,4 +644,75 @@ function initLightbox() {
     if (e.key === 'ArrowRight') next();
     if (e.key === 'ArrowLeft') prev();
   });
+}
+
+/* ============================================
+   Donate Page Sticky Nav & Scroll Spy
+   ============================================ */
+function initDonateNav() {
+  const nav = document.getElementById('donate-sticky-nav');
+  if (!nav) return;
+
+  const links = nav.querySelectorAll('.donate-nav-link');
+  const sectionIds = Array.from(links).map(l => l.getAttribute('href').slice(1));
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  // Sticky behavior via IntersectionObserver on the nav itself
+  const sentinel = nav;
+  let navTop = nav.offsetTop;
+
+  function updateSticky() {
+    if (window.scrollY >= navTop) {
+      nav.classList.add('stuck');
+    } else {
+      nav.classList.remove('stuck');
+    }
+  }
+
+  // Scroll spy - highlight active section
+  function updateActive() {
+    const mainNav = document.querySelector('.navbar');
+    const navHeight = nav.offsetHeight + (mainNav ? mainNav.offsetHeight : 0) + 10;
+    let current = sectionIds[0];
+
+    for (const section of sections) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= navHeight + 80) {
+        current = section.id;
+      }
+    }
+
+    links.forEach(link => {
+      const href = link.getAttribute('href').slice(1);
+      link.classList.toggle('active', href === current);
+    });
+  }
+
+  // Smooth scroll on click
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(link.getAttribute('href').slice(1));
+      if (!target) return;
+      const mainNav = document.querySelector('.navbar');
+      const mainNavHeight = mainNav ? mainNav.offsetHeight : 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - mainNavHeight - nav.offsetHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    updateSticky();
+    updateActive();
+  }, { passive: true });
+
+  // Recalculate nav position on resize
+  window.addEventListener('resize', () => {
+    if (!nav.classList.contains('stuck')) {
+      navTop = nav.offsetTop;
+    }
+  });
+
+  updateSticky();
+  updateActive();
 }
