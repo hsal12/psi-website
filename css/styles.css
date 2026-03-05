@@ -471,7 +471,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .nav-logo img {
-    height: 65px;
+    height: 100px;
   }
 
   .nav-mobile-donate {
@@ -830,6 +830,20 @@ h1, h2, h3, h4, h5, h6 {
     margin: 0 auto;
   }
 
+  .hero-emergency {
+    padding: 0.45rem 0;
+  }
+
+  .hero-emergency .container {
+    font-size: 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .hero-emergency svg {
+    width: 16px;
+    height: 16px;
+  }
+
   .befast-grid {
     grid-template-columns: 1fr;
   }
@@ -873,7 +887,7 @@ h1, h2, h3, h4, h5, h6 {
    Quick Info Strip (20 sec)
    ============================================ */
 .quick-info {
-  background: var(--gray-bg);
+  background: linear-gradient(135deg, #e3f0e6 0%, #d6eadc 100%);
   padding: 3rem 0;
   border-bottom: 1px solid rgba(0,0,0,0.05);
 }
@@ -1329,7 +1343,7 @@ h1, h2, h3, h4, h5, h6 {
    Testimonials
    ============================================ */
 .testimonials {
-  background: var(--gray-bg);
+  background: #e5e7e5;
 }
 
 .testimonial-slider {
