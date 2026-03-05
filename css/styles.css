@@ -2210,35 +2210,31 @@ h1, h2, h3, h4, h5, h6 {
 
 .team-card-links {
   display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-  margin-top: 0.75rem;
-  padding-top: 0.75rem;
-  border-top: 1px solid rgba(0,0,0,0.06);
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  justify-content: center;
 }
 
 .team-card-links a {
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  font-size: 0.75rem;
+  justify-content: center;
   color: var(--green);
   text-decoration: none;
-  padding: 0.25rem 0.5rem;
-  border-radius: var(--radius-sm);
-  background: rgba(26,107,55,0.06);
-  transition: background 0.2s ease, color 0.2s ease;
-  font-weight: 500;
+  padding: 0.25rem;
+  border-radius: 50%;
+  transition: color 0.2s ease, background 0.2s ease;
+  font-size: 0;
 }
 
 .team-card-links a:hover {
-  background: rgba(26,107,55,0.15);
   color: var(--green-dark);
+  background: rgba(26,107,55,0.1);
 }
 
 .team-card-links a svg {
-  width: 14px;
-  height: 14px;
+  width: 15px;
+  height: 15px;
   flex-shrink: 0;
 }
 
