@@ -460,6 +460,10 @@ h1, h2, h3, h4, h5, h6 {
   display: none;
 }
 
+.nav-mobile-social {
+  display: none;
+}
+
 /* Mobile Nav */
 @media (max-width: 900px) {
   .nav-toggle {
@@ -508,6 +512,7 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0.25rem;
     box-shadow: -10px 0 40px rgba(0,0,0,0.1);
     transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow-y: auto;
   }
 
   .nav-links.open {
@@ -529,6 +534,54 @@ h1, h2, h3, h4, h5, h6 {
   .nav-donate .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .nav-mobile-social {
+    display: block;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-light);
+    width: 100%;
+  }
+
+  .nav-mobile-social > p {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--gray);
+    margin-bottom: 0.6rem;
+  }
+
+  .nav-mobile-social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .nav-mobile-social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border-radius: var(--radius-sm);
+    background: var(--gray-light);
+    color: var(--dark);
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .nav-mobile-social-links a:hover {
+    background: var(--green);
+    color: var(--white);
+  }
+
+  .nav-mobile-social-links a svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
   }
 
 }
