@@ -455,10 +455,39 @@ h1, h2, h3, h4, h5, h6 {
   transform: rotate(-45deg) translate(5px, -5px);
 }
 
+/* Mobile donate button - hidden on desktop */
+.nav-mobile-donate {
+  display: none;
+}
+
 /* Mobile Nav */
 @media (max-width: 900px) {
   .nav-toggle {
     display: flex;
+  }
+
+  .nav-social {
+    display: none;
+  }
+
+  .nav-mobile-donate {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.4rem 0.9rem;
+    background: var(--gold);
+    color: var(--white);
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    margin-right: 0.75rem;
+    white-space: nowrap;
+  }
+
+  .nav-mobile-donate:hover {
+    background: var(--gold-dark);
+    color: var(--white);
   }
 
   .nav-links {
@@ -498,23 +527,6 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
   }
 
-  .nav-logo-group {
-    gap: 0.4rem;
-  }
-
-  .nav-social {
-    gap: 0.15rem;
-  }
-
-  .nav-social a {
-    width: 20px;
-    height: 20px;
-  }
-
-  .nav-social svg {
-    width: 11px;
-    height: 11px;
-  }
 }
 
 /* Mobile nav overlay */
@@ -1057,21 +1069,21 @@ h1, h2, h3, h4, h5, h6 {
     gap: 2rem;
   }
 
+  .spotlight-grid .spotlight-image {
+    order: -1;
+  }
+
   .spotlight-features {
     grid-template-columns: 1fr;
   }
 
   .partnership-logos img {
-    height: 35px !important;
+    height: 100px !important;
   }
 
   .partnership-logos svg {
-    width: 18px !important;
-    height: 18px !important;
-  }
-
-  .spotlight-image [style*="position: absolute"] img {
-    height: 60px !important;
+    width: 20px !important;
+    height: 20px !important;
   }
 }
 
@@ -2625,17 +2637,17 @@ h1, h2, h3, h4, h5, h6 {
 .hospital-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.9rem;
-  min-width: 600px;
+  font-size: 0.78rem;
+  min-width: 500px;
 }
 
 .hospital-table thead th {
   background: var(--green);
   color: var(--white);
   font-weight: 700;
-  padding: 1rem 1.25rem;
+  padding: 0.6rem 0.75rem;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   letter-spacing: 0.02em;
   position: sticky;
   top: 0;
@@ -2644,7 +2656,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .hospital-table thead th:first-child {
   text-align: left;
-  min-width: 260px;
+  min-width: 200px;
 }
 
 .hospital-table tbody tr {
@@ -2657,7 +2669,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hospital-table tbody td {
-  padding: 0.75rem 1.25rem;
+  padding: 0.4rem 0.75rem;
   vertical-align: middle;
 }
 

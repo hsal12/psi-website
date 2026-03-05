@@ -104,11 +104,13 @@
 
     .alt-donation-section {
       padding: 4rem 0;
-      background: var(--off-white);
+      background: linear-gradient(135deg, #f0f7f2 0%, #e8f5ec 100%);
+      border-top: 1px solid rgba(26,107,55,0.08);
+      border-bottom: 1px solid rgba(26,107,55,0.08);
     }
     .alt-donation-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 1.5rem;
       margin-top: 2rem;
     }
@@ -173,6 +175,7 @@
 
     .impact-breakdown {
       padding: 4rem 0;
+      background: var(--white);
     }
     .impact-breakdown-grid {
       display: grid;
@@ -214,14 +217,23 @@
 
     .donate-testimonial {
       padding: 4rem 0;
-      background: var(--off-white);
+      background: var(--gradient-hero);
+      color: var(--white);
+    }
+    .donate-testimonial .section-label {
+      color: var(--gold);
+    }
+    .donate-testimonial .section-title {
+      color: var(--white);
     }
     .donate-testimonial-card {
       max-width: 700px;
       margin: 0 auto;
       text-align: center;
       padding: 3rem;
-      background: var(--white);
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.15);
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-md);
       position: relative;
@@ -230,8 +242,8 @@
       font-family: 'Plus Jakarta Sans', serif;
       font-size: 5rem;
       line-height: 1;
-      color: var(--purple);
-      opacity: 0.15;
+      color: var(--gold);
+      opacity: 0.4;
       position: absolute;
       top: 0.5rem;
       left: 1.5rem;
@@ -239,7 +251,7 @@
     .donate-testimonial-card blockquote {
       font-size: 1.15rem;
       line-height: 1.8;
-      color: var(--dark);
+      color: rgba(255,255,255,0.95);
       font-style: italic;
       margin-bottom: 1.5rem;
       position: relative;
@@ -268,17 +280,17 @@
     }
     .donate-testimonial-card .attribution-name {
       font-weight: 700;
-      color: var(--dark);
+      color: var(--white);
       font-size: 0.95rem;
     }
     .donate-testimonial-card .attribution-role {
       font-size: 0.85rem;
-      color: var(--gray);
+      color: rgba(255,255,255,0.7);
     }
 
     @media (max-width: 768px) {
       .alt-donation-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
       }
       .impact-breakdown-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -294,6 +306,91 @@
       .impact-breakdown-grid {
         grid-template-columns: 1fr;
       }
+    }
+
+    .faq-section {
+      padding: var(--section-pad) 0;
+      background: var(--off-white);
+    }
+
+    .faq-grid {
+      max-width: 800px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .faq-item {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(0,0,0,0.06);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-item:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .faq-question {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--dark);
+      text-align: left;
+      gap: 1rem;
+      transition: var(--transition);
+    }
+
+    .faq-question:hover {
+      color: var(--purple);
+    }
+
+    .faq-question svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-question svg {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 300px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 1.5rem 1.25rem;
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    .faq-answer-inner a {
+      color: var(--purple);
+      font-weight: 500;
+    }
+
+    .faq-answer-inner a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -341,6 +438,11 @@
           <a href="donate.html" class="btn btn-primary btn-sm active">Donate Now</a>
         </div>
       </div>
+
+      <a href="donate.html" class="nav-mobile-donate" aria-label="Donate">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Donate
+      </a>
 
       <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
         <span></span>
@@ -393,7 +495,7 @@
                 <svg viewBox="0 0 24 24" fill="none" stroke="#e5a520" stroke-width="2" width="24" height="24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
               </div>
               <h3>Tax Deductible</h3>
-              <p>PSI is a registered 501(c)(3) nonprofit. Your contributions are fully tax-deductible to the extent allowed by law.</p>
+              <p>PSI is a registered 501(c)(3) nonprofit (EIN: 88-4257340). Your contributions are fully tax-deductible to the extent allowed by law.</p>
             </div>
           </div>
         </div>
@@ -443,7 +545,23 @@
             </div>
             <h3>Mail a Check</h3>
             <p>Make checks payable to &ldquo;Pakistan Stroke Initiative&rdquo; and mail to:</p>
-            <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--dark); font-weight: 500;">Pakistan Stroke Initiative<br>P.O. Box address<br>City, State ZIP</p>
+            <p style="margin-top: 0.75rem; font-size: 0.85rem; color: var(--dark); font-weight: 500;">Pakistan Stroke Initiative<br>18128 Cyan Way<br>Santa Clarita, CA 91350</p>
+          </div>
+
+          <div class="alt-donation-card fade-in">
+            <div class="alt-donation-icon green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="26" height="26"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Donate from Pakistan</h3>
+            <p>Bank transfer via Dubai Islamic Bank:</p>
+            <div style="margin-top: 0.75rem; font-size: 0.8rem; color: var(--dark); text-align: left; line-height: 1.8;">
+              <strong>Account:</strong> Patients Aid Foundation &ndash; Stroke Initiative<br>
+              <strong>Branch:</strong> Gizri Branch, Karachi<br>
+              <strong>Account No:</strong> 0031534070<br>
+              <strong>IBAN:</strong> PK18DUIB0000000031534070<br>
+              <strong>Swift:</strong> DUIBPKKA<br>
+              <strong>Currency:</strong> PKR
+            </div>
           </div>
         </div>
       </div>
@@ -477,7 +595,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="#1e6239" stroke-width="1.5" width="32" height="32"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
             <h3>Brain Aneurysm Treatment</h3>
-            <p style="font-size: 1.5rem; font-weight: 800; color: var(--purple); margin-bottom: 0.25rem;">$2,500</p>
+            <p style="font-size: 1.5rem; font-weight: 800; color: var(--purple); margin-bottom: 0.25rem;">$5,000</p>
             <p>Endovascular coiling or flow diversion to treat a ruptured brain aneurysm and prevent fatal bleeding.</p>
           </div>
 
@@ -486,7 +604,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="#e5a520" stroke-width="1.5" width="32" height="32"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
             </div>
             <h3>Stroke Surgery (Thrombectomy)</h3>
-            <p style="font-size: 1.5rem; font-weight: 800; color: var(--purple); margin-bottom: 0.25rem;">$4,000</p>
+            <p style="font-size: 1.5rem; font-weight: 800; color: var(--purple); margin-bottom: 0.25rem;">$2,500</p>
             <p>Mechanical clot retrieval surgery to remove a large vessel occlusion and restore blood flow to the brain.</p>
           </div>
 
@@ -500,6 +618,97 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+      <div class="container">
+        <div class="text-center fade-in" style="margin-bottom: 3rem;">
+          <span class="section-label">FAQ</span>
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <p class="section-subtitle">Find answers to the most common questions about our organization, donations, and how to get involved.</p>
+        </div>
+
+        <div class="faq-grid stagger-children">
+          <!-- FAQ 1 -->
+          <div class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+              How can I donate to the Pakistan Stroke Initiative?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                You can donate through several convenient methods. We accept donations via <a href="#main">Zeffy</a> (which charges 0% platform fees, so 100% of your donation goes to our mission), Zelle (send to our registered email), check, or wire transfer. See our donation methods above for full details.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+              Is my donation tax-deductible?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes. The Pakistan Stroke Initiative is a registered 501(c)(3) nonprofit organization in the United States. All donations are tax-deductible to the fullest extent allowed by law. You will receive a tax receipt for your records after making a contribution.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+              How can I volunteer with PSI?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                We welcome volunteers who are passionate about improving stroke care. You can get involved by helping with fundraising events, community outreach, social media, or clinical support (for medical professionals). Visit our <a href="contact.html">Contact page</a> to fill out a message with "Volunteer" selected as the subject, or email us directly at <a href="mailto:info@pakistanstroke.com">info@pakistanstroke.com</a>.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+              Is the Pakistan Stroke Initiative Zakat-eligible?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes. The Pakistan Stroke Initiative is Zakat-eligible. Your Zakat contributions go directly toward funding life-saving stroke treatment for patients who cannot afford care, aligning with the principles of Zakat in supporting those in need. Use the donation form above to designate your contribution as Zakat.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+              How does PSI use my donation?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Your donations directly fund life-saving stroke treatment for patients who cannot afford it, physician training workshops in the latest neurovascular techniques, the establishment of stroke centers and critical medical infrastructure, and public awareness campaigns across Pakistan. We are committed to transparency and maximizing the impact of every dollar.
+              </div>
+            </div>
+          </div>
+
+          <!-- FAQ 6 -->
+          <div class="faq-item fade-in">
+            <button class="faq-question" aria-expanded="false" onclick="toggleFaq(this)">
+              Can I partner with PSI as a hospital or organization?
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Absolutely. We actively seek partnerships with hospitals, medical institutions, corporate sponsors, and other nonprofits. If your organization is interested in collaborating on stroke care, training, or community outreach, please visit our <a href="contact.html">Contact page</a> or email us at <a href="mailto:info@pakistanstroke.com">info@pakistanstroke.com</a> with "Partnership" in the subject line.
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -541,7 +750,7 @@
         </div>
 
         <div class="text-center fade-in" style="margin-top: 2.5rem;">
-          <p style="color: var(--gray); max-width: 500px; margin: 0 auto;">
+          <p style="color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto;">
             All physicians contribute pro bono. Every dollar you give goes directly to infrastructure, equipment, and staffing &mdash; ensuring no stroke patient is turned away.
           </p>
         </div>
@@ -667,5 +876,26 @@
   </button>
 
   <script src="js/main.js"></script>
+
+  <!-- FAQ Accordion Script -->
+  <script>
+    function toggleFaq(button) {
+      const item = button.parentElement;
+      const isActive = item.classList.contains('active');
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+
+      // Close all other FAQ items
+      document.querySelectorAll('.faq-item.active').forEach(activeItem => {
+        activeItem.classList.remove('active');
+        activeItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+
+      // Toggle current item
+      if (!isActive) {
+        item.classList.add('active');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    }
+  </script>
 </body>
 </html>
