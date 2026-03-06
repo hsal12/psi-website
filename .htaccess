@@ -1,0 +1,4 @@
+# Force www redirect - all non-www traffic goes to www
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^pakistanstroke\.com [NC]
+RewriteRule ^(.*)$ https://www.pakistanstroke.com/$1 [L,R=301]
