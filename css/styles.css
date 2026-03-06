@@ -3304,10 +3304,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-style: italic;
   font-weight: 700;
-  background: linear-gradient(135deg, var(--gold) 0%, #ffd666 50%, var(--gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--gold);
 }
 
 .hero-slogan {
@@ -3315,10 +3312,7 @@ h1, h2, h3, h4, h5, h6 {
   font-style: italic;
   font-weight: 700;
   font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-  background: linear-gradient(135deg, var(--gold) 0%, #ffd666 50%, var(--coral-light) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--gold);
   margin-bottom: 1rem;
   letter-spacing: 0.02em;
 }
