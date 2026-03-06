@@ -2631,9 +2631,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Page Section Sticky Navigation */
 .donate-sticky-nav {
-  background: linear-gradient(135deg, #f8faf9 0%, #f0f5f2 100%);
-  border-bottom: 2px solid rgba(26,107,55,0.15);
-  border-top: 1px solid rgba(26,107,55,0.08);
+  background: linear-gradient(135deg, #0d1a12 0%, #1a3528 100%);
+  border-bottom: 2px solid var(--gold);
   padding: 0;
   position: sticky;
   top: 72px;
@@ -2642,7 +2641,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .donate-sticky-nav.stuck {
-  box-shadow: 0 3px 16px rgba(26,107,55,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
 }
 
 .donate-sticky-nav .container {
@@ -2663,7 +2662,7 @@ h1, h2, h3, h4, h5, h6 {
   padding: 0.75rem 1.15rem;
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--gray);
+  color: rgba(255,255,255,0.6);
   text-decoration: none;
   border-bottom: 3px solid transparent;
   transition: var(--transition);
@@ -2671,14 +2670,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .donate-nav-link:hover {
-  color: var(--green);
-  background: rgba(26,107,55,0.06);
+  color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.08);
 }
 
 .donate-nav-link.active {
-  color: var(--green);
-  border-bottom-color: var(--green);
-  background: rgba(26,107,55,0.04);
+  color: var(--gold);
+  border-bottom-color: var(--gold);
+  background: rgba(255,255,255,0.05);
 }
 
 .donate-nav-link svg {
