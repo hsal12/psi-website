@@ -656,6 +656,11 @@
             <p style="color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.25rem;">Over 24,000 companies match employee donations. Search below to find your employer's matching gift program, forms, and instructions.</p>
 
             <div style="margin-bottom: 1.5rem;">
+              <!-- Search prompt with icon for visibility -->
+              <div id="dd-search-prompt" style="display: flex; align-items: center; gap: 0.75rem; background: var(--white); border: 2px solid var(--green); border-radius: var(--radius-md); padding: 0.85rem 1.25rem; margin-bottom: 1rem; cursor: pointer; transition: box-shadow 0.2s ease;" onclick="var inp = document.querySelector('#dd-container input[type=text], #dd-container input[type=search]'); if(inp){inp.focus(); inp.scrollIntoView({behavior:'smooth', block:'center'});} this.style.display='none';">
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2" width="22" height="22" style="flex-shrink:0;"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <span style="color: var(--gray); font-size: 0.95rem; text-align: left;">Tap here to search if your employer matches donations...</span>
+              </div>
               <script>var DDCONF = { API_KEY: "GU2uJk5Tu10ADpk8" };</script>
               <script src="https://doublethedonation.com/api/js/ddplugin.js"></script>
               <div id="dd-container">
@@ -663,6 +668,28 @@
                 <a href="https://doublethedonation.com/matching-grant-resources/volunteer-grant-basics/">Volunteer Grant</a> information provided by<br>
                 <a href="https://doublethedonation.com"><img alt="Powered by Double the Donation" src="https://doublethedonation.com/api/img/powered-by.png"></a>
               </div>
+              <style>
+                /* Make Double the Donation widget more visible on mobile */
+                #dd-container input[type="text"],
+                #dd-container input[type="search"] {
+                  width: 100% !important;
+                  min-height: 48px !important;
+                  font-size: 16px !important;
+                  padding: 0.75rem 1rem !important;
+                  border: 2px solid var(--green) !important;
+                  border-radius: var(--radius-md) !important;
+                  box-sizing: border-box !important;
+                }
+                #dd-container input[type="text"]:focus,
+                #dd-container input[type="search"]:focus {
+                  outline: none !important;
+                  box-shadow: 0 0 0 3px rgba(26,107,55,0.2) !important;
+                }
+                /* Hide the prompt once the widget search is visible */
+                @media (min-width: 769px) {
+                  #dd-search-prompt { display: none !important; }
+                }
+              </style>
             </div>
 
             <div style="border-top: 1px solid rgba(26,107,55,0.12); padding-top: 1.5rem;">
@@ -898,7 +925,7 @@
           </div>
           <div class="donate-method">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>
-            Zelle
+            Employer Matching
           </div>
           <div class="donate-method">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>

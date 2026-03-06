@@ -137,6 +137,55 @@
       </div>
     </section>
 
+    <!-- Sticky Page Nav -->
+    <nav class="donate-sticky-nav" id="team-sticky-nav">
+      <div class="container">
+        <div class="donate-nav-links" style="justify-content: space-evenly;">
+          <a href="#about-psi" class="donate-nav-link active">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            About PSI
+          </a>
+          <a href="#leadership" class="donate-nav-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Co-Founders
+          </a>
+          <a href="#board" class="donate-nav-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            Board
+          </a>
+          <a href="#state-board" class="donate-nav-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Chapters
+          </a>
+          <a href="#in-action" class="donate-nav-link">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            In Action
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- About PSI Section -->
+    <section class="section" id="about-psi" style="background: linear-gradient(135deg, #f0f7f2 0%, #e8f3eb 100%);">
+      <div class="container">
+        <div class="text-center fade-in" style="margin-bottom: 2rem;">
+          <span class="section-label">Our Story</span>
+          <h2 class="section-title">About Pakistan Stroke Initiative</h2>
+        </div>
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;" class="fade-in">
+          <p style="font-size: 1.05rem; line-height: 1.8; color: var(--dark); margin-bottom: 1.25rem;">
+            The Pakistan Stroke Initiative (PSI) is a 501(c)(3) nonprofit organization founded by Pakistani-American physicians who witnessed firsthand the devastating gap in stroke care in Pakistan. With over 240 million people and fewer than a handful of trained neurointerventionalists, Pakistan loses thousands of lives each year to strokes that could be treated.
+          </p>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: var(--dark); margin-bottom: 1.25rem;">
+            PSI bridges this gap by training local physicians, equipping hospitals with modern neuroangiography suites, and providing direct patient care through regular clinical missions. Our flagship program at JPMC in Karachi has transformed stroke treatment capabilities, while our expanding network reaches hospitals across Sindh and Punjab.
+          </p>
+          <p style="font-size: 1.05rem; line-height: 1.8; color: var(--dark);">
+            What started as a small group of dedicated doctors has grown into a nationwide movement &mdash; with chapter leaders across the United States, partnerships with leading medical institutions, and a shared vision: that no Pakistani should die from a treatable stroke.
+          </p>
+        </div>
+      </div>
+    </section>
+
     <!-- Co-Founders Section -->
     <section class="section" id="leadership">
       <div class="container">
@@ -150,7 +199,7 @@
           <!-- Dr. Hisham Salahuddin -->
           <div class="team-card fade-in">
             <div class="team-card-image" style="background: #ffffff;">
-              <img src="images/Team-hisham-salahuddin.jpg" alt="Hisham Salahuddin" loading="lazy" style="object-position: center 20%;">
+              <img src="images/team-hisham-salahuddin.jpg" alt="Hisham Salahuddin" loading="lazy" style="object-position: center 20%;">
             </div>
             <div class="team-card-body">
               <h3>Hisham Salahuddin, MD</h3>
@@ -211,7 +260,7 @@
           <!-- Ahsan Sattar -->
           <div class="team-card fade-in">
             <div class="team-card-image">
-              <div class="team-card-initials">AS</div>
+              <img src="images/team-ahsan-sattar.jpg" alt="Ahsan Sattar" loading="lazy" style="object-position: center top;">
             </div>
             <div class="team-card-body">
               <h3>Ahsan Sattar, MD</h3>
@@ -228,7 +277,7 @@
           <!-- Irfan Lutfi -->
           <div class="team-card fade-in">
             <div class="team-card-image">
-              <div class="team-card-initials">IL</div>
+              <img src="images/team-irfan-lutfi.jpg" alt="Irfan Lutfi" loading="lazy" style="object-position: center top;">
             </div>
             <div class="team-card-body">
               <h3>Irfan Lutfi, MD, FVIR, EBNI</h3>
@@ -263,7 +312,7 @@
           <!-- Adeel Ahmad -->
           <div class="team-card fade-in">
             <div class="team-card-image">
-              <div class="team-card-initials">AA</div>
+              <img src="images/team-adeel-ahmad.jpg" alt="Adeel Ahmad" loading="lazy" style="object-position: center top;">
             </div>
             <div class="team-card-body">
               <h3>Adeel Ahmad, MD, MBA, FCAP</h3>
@@ -307,26 +356,10 @@
         </div>
 
         <div class="team-grid stagger-children">
-          <!-- Shazia Afzal -->
+          <!-- Amina Saqib - New Jersey -->
           <div class="team-card fade-in">
             <div class="team-card-image">
-              <div class="team-card-initials">SA</div>
-            </div>
-            <div class="team-card-body">
-              <h3>Shazia Afzal, MD</h3>
-              <div class="team-card-title">Indiana Chapter</div>
-              <p>Clinical Research Physician, USA. Director, Global Patient Safety (Cardiometabolic Health)</p>
-              <div class="team-card-links">
-                <a href="https://www.linkedin.com/in/shazia-afzal-6230275b/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
-              </div>
-              <p style="font-style: italic; color: var(--gray); font-size: 0.85rem; margin-top: 0.75rem; line-height: 1.5;">&ldquo;Behind every stroke emergency is a life waiting to be saved, and our mission is enabling that possibility.&rdquo;</p>
-            </div>
-          </div>
-
-          <!-- Amina Saqib -->
-          <div class="team-card fade-in">
-            <div class="team-card-image">
-              <img src="images/team-amina-saqib.jpg" alt="Amina Saqib" loading="lazy" style="object-position: center 15%; transform: scale(0.9);">
+              <img src="images/team-amina-saqib.jpg" alt="Amina Saqib" loading="lazy" style="object-position: center 15%;">
             </div>
             <div class="team-card-body">
               <h3>Amina Saqib, MD</h3>
@@ -341,10 +374,28 @@
             </div>
           </div>
 
-          <!-- Sana Raza -->
+          <!-- Shafaq Bokhari - New Jersey -->
           <div class="team-card fade-in">
             <div class="team-card-image">
-              <div class="team-card-initials">SR</div>
+              <img src="images/team-shafaq-bokhari.jpg" alt="Shafaq Bokhari" loading="lazy" style="object-position: center top;">
+            </div>
+            <div class="team-card-body">
+              <h3>Shafaq Bokhari, MD</h3>
+              <div class="team-card-title">New Jersey Chapter</div>
+              <p>Chairperson, Department of Medicine | Core Faculty, Transitional Year Residency Program | Hospitalist, Capital Health, NJ</p>
+              <div class="team-card-links">
+                <a href="https://www.capitalhealth.org/professionals/transitional-year-residency/program-leadership" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Capital Health</a>
+                <a href="https://www.linkedin.com/in/shafaq-bokhari-2940529b" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Shafaq+Bokhari" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>PubMed</a>
+              </div>
+              <p style="font-style: italic; color: var(--gray); font-size: 0.85rem; margin-top: 0.75rem; line-height: 1.5;">&ldquo;As physicians, we don&rsquo;t just treat illness, we build systems that give every patient a chance at recovery.&rdquo;</p>
+            </div>
+          </div>
+
+          <!-- Sana Raza - Houston/Texas -->
+          <div class="team-card fade-in">
+            <div class="team-card-image">
+              <img src="images/team-sana-raza.jpg" alt="Sana Raza" loading="lazy" style="object-position: center 20%;">
             </div>
             <div class="team-card-body">
               <h3>Sana Raza</h3>
@@ -354,6 +405,53 @@
                 <a href="https://www.linkedin.com/in/sana-raza-272581a7/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
               </div>
               <p style="font-style: italic; color: var(--gray); font-size: 0.85rem; margin-top: 0.75rem; line-height: 1.5;">&ldquo;Strong communities are built when awareness meets action, and every family gets the chance to live healthier, safer lives.&rdquo;</p>
+            </div>
+          </div>
+
+          <!-- Humayun Anjum - Dallas/Texas -->
+          <div class="team-card fade-in">
+            <div class="team-card-image">
+              <img src="images/team-humayun-anjum.jpg" alt="Humayun Anjum" loading="lazy" style="object-position: center 15%;">
+            </div>
+            <div class="team-card-body">
+              <h3>Humayun Anjum, MD, FCCP</h3>
+              <div class="team-card-title">Dallas Chapter</div>
+              <p>Medical Director, Pulmonary &amp; ICU Services, Baylor Scott &amp; White Health | Clinical Associate Professor, University of Houston &amp; North Texas</p>
+              <div class="team-card-links">
+                <a href="https://www.bswhealth.com/physician/humayun-anjum" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>BSW Health</a>
+                <a href="https://www.linkedin.com/in/humayun-anjum-47aa8220a/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+                <a href="https://pubmed.ncbi.nlm.nih.gov/?term=Humayun+Anjum" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>PubMed</a>
+              </div>
+              <p style="font-style: italic; color: var(--gray); font-size: 0.85rem; margin-top: 0.75rem; line-height: 1.5;">&ldquo;When we combine education, innovation, and global collaboration, we can make real progress in preventing stroke and saving lives.&rdquo;</p>
+            </div>
+          </div>
+
+          <!-- Shazia Afzal - Indiana -->
+          <div class="team-card fade-in">
+            <div class="team-card-image">
+              <img src="images/team-shazia-afzal.jpg" alt="Shazia Afzal" loading="lazy" style="object-position: center top;">
+            </div>
+            <div class="team-card-body">
+              <h3>Shazia Afzal, MD</h3>
+              <div class="team-card-title">Indiana Chapter</div>
+              <p>Clinical Research Physician, USA. Director, Global Patient Safety (Cardiometabolic Health)</p>
+              <div class="team-card-links">
+                <a href="https://www.linkedin.com/in/shazia-afzal-6230275b/" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a>
+              </div>
+              <p style="font-style: italic; color: var(--gray); font-size: 0.85rem; margin-top: 0.75rem; line-height: 1.5;">&ldquo;Behind every stroke emergency is a life waiting to be saved, and our mission is enabling that possibility.&rdquo;</p>
+            </div>
+          </div>
+
+          <!-- Farhat Murtaza - Orlando/Florida -->
+          <div class="team-card fade-in">
+            <div class="team-card-image">
+              <img src="images/team-farhat-murtaza.jpg" alt="Farhat Murtaza" loading="lazy" style="object-position: center top;">
+            </div>
+            <div class="team-card-body">
+              <h3>Farhat Murtaza, MD, CCDS, CRC</h3>
+              <div class="team-card-title">Orlando Chapter</div>
+              <p>CDI Physician &amp; Denials Auditor, USA. Inpatient CDI Specialist, Asante Health System</p>
+              <p style="font-style: italic; color: var(--gray); font-size: 0.85rem; margin-top: 0.75rem; line-height: 1.5;">&ldquo;Every person deserves access to stroke education, early detection, and care that can save lives.&rdquo;</p>
             </div>
           </div>
         </div>
@@ -454,7 +552,7 @@
           </div>
           <div class="donate-method">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>
-            Zelle
+            Employer Matching
           </div>
           <div class="donate-method">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><polyline points="20 6 9 17 4 12"/></svg>

@@ -16,7 +16,12 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallax();
   initSymptomChecker();
   initLightbox();
-  initDonateNav();
+  initStickyPageNav('donate-sticky-nav');
+  initStickyPageNav('strokes-sticky-nav');
+  initStickyPageNav('impact-sticky-nav');
+  initStickyPageNav('index-sticky-nav');
+  initStickyPageNav('team-sticky-nav');
+  initStickyPageNav('gallery-sticky-nav');
 
 });
 
@@ -648,10 +653,10 @@ function initLightbox() {
 }
 
 /* ============================================
-   Donate Page Sticky Nav & Scroll Spy
+   Sticky Page Nav & Scroll Spy (Donate, About Strokes, etc.)
    ============================================ */
-function initDonateNav() {
-  const nav = document.getElementById('donate-sticky-nav');
+function initStickyPageNav(navId) {
+  const nav = document.getElementById(navId);
   if (!nav) return;
 
   const links = nav.querySelectorAll('.donate-nav-link');
@@ -671,6 +676,8 @@ function initDonateNav() {
   }
 
   // Scroll spy - highlight active section
+  const navLinksContainer = nav.querySelector('.donate-nav-links');
+
   function updateActive() {
     const mainNav = document.querySelector('.navbar');
     const navHeight = nav.offsetHeight + (mainNav ? mainNav.offsetHeight : 0) + 10;
@@ -685,7 +692,17 @@ function initDonateNav() {
 
     links.forEach(link => {
       const href = link.getAttribute('href').slice(1);
-      link.classList.toggle('active', href === current);
+      const isActive = href === current;
+      link.classList.toggle('active', isActive);
+      // Auto-scroll the nav container to keep active link visible on mobile
+      if (isActive && navLinksContainer && window.innerWidth <= 768) {
+        const containerRect = navLinksContainer.getBoundingClientRect();
+        const linkRect = link.getBoundingClientRect();
+        const linkCenter = linkRect.left + linkRect.width / 2;
+        const containerCenter = containerRect.left + containerRect.width / 2;
+        const scrollOffset = linkCenter - containerCenter;
+        navLinksContainer.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+      }
     });
   }
 
