@@ -696,12 +696,8 @@ function initStickyPageNav(navId) {
       link.classList.toggle('active', isActive);
       // Auto-scroll the nav container to keep active link visible on mobile
       if (isActive && navLinksContainer && window.innerWidth <= 768) {
-        const containerRect = navLinksContainer.getBoundingClientRect();
-        const linkRect = link.getBoundingClientRect();
-        const linkCenter = linkRect.left + linkRect.width / 2;
-        const containerCenter = containerRect.left + containerRect.width / 2;
-        const scrollOffset = linkCenter - containerCenter;
-        navLinksContainer.scrollBy({ left: scrollOffset, behavior: 'smooth' });
+        const scrollLeft = link.offsetLeft - (navLinksContainer.offsetWidth / 2) + (link.offsetWidth / 2);
+        navLinksContainer.scrollTo({ left: Math.max(0, scrollLeft), behavior: 'smooth' });
       }
     });
   }
