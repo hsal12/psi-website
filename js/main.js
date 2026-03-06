@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSymptomChecker();
   initLightbox();
   initDonateNav();
+  initPageNav();
 });
 
 /* ============================================
@@ -707,6 +708,75 @@ function initDonateNav() {
   }, { passive: true });
 
   // Recalculate nav position on resize
+  window.addEventListener('resize', () => {
+    if (!nav.classList.contains('stuck')) {
+      navTop = nav.offsetTop;
+    }
+  });
+
+  updateSticky();
+  updateActive();
+}
+
+/* ============================================
+   Generic Page Sticky Nav & Scroll Spy
+   (Home, Impact, About Strokes pages)
+   ============================================ */
+function initPageNav() {
+  const nav = document.getElementById('page-sticky-nav');
+  if (!nav) return;
+
+  const links = nav.querySelectorAll('.page-nav-link');
+  const sectionIds = Array.from(links).map(l => l.getAttribute('href').slice(1));
+  const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+  let navTop = nav.offsetTop;
+
+  function updateSticky() {
+    if (window.scrollY >= navTop) {
+      nav.classList.add('stuck');
+    } else {
+      nav.classList.remove('stuck');
+    }
+  }
+
+  // Scroll spy - highlight active section
+  function updateActive() {
+    const mainNav = document.querySelector('.navbar');
+    const navHeight = nav.offsetHeight + (mainNav ? mainNav.offsetHeight : 0) + 10;
+    let current = sectionIds[0];
+
+    for (const section of sections) {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= navHeight + 80) {
+        current = section.id;
+      }
+    }
+
+    links.forEach(link => {
+      const href = link.getAttribute('href').slice(1);
+      link.classList.toggle('active', href === current);
+    });
+  }
+
+  // Smooth scroll on click
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.getElementById(link.getAttribute('href').slice(1));
+      if (!target) return;
+      const mainNav = document.querySelector('.navbar');
+      const mainNavHeight = mainNav ? mainNav.offsetHeight : 0;
+      const top = target.getBoundingClientRect().top + window.scrollY - mainNavHeight - nav.offsetHeight;
+      window.scrollTo({ top, behavior: 'smooth' });
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    updateSticky();
+    updateActive();
+  }, { passive: true });
+
   window.addEventListener('resize', () => {
     if (!nav.classList.contains('stuck')) {
       navTop = nav.offsetTop;

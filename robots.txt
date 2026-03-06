@@ -1,0 +1,6 @@
+# Pakistan Stroke Initiative - robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://pakistanstroke.com/sitemap.xml
