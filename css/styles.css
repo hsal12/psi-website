@@ -3304,7 +3304,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
   font-style: italic;
   font-weight: 700;
-  color: var(--gold);
+  color: var(--gold) !important;
 }
 
 .hero-slogan {
@@ -3312,7 +3312,7 @@ h1, h2, h3, h4, h5, h6 {
   font-style: italic;
   font-weight: 700;
   font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-  color: var(--gold);
+  color: var(--gold) !important;
   margin-bottom: 1rem;
   letter-spacing: 0.02em;
 }
@@ -3332,7 +3332,7 @@ h1, h2, h3, h4, h5, h6 {
   font-style: italic;
   font-weight: 600;
   font-size: 1rem;
-  color: var(--gold);
+  color: var(--gold) !important;
   margin-top: 0.75rem;
 }
 
